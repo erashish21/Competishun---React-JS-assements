@@ -9,7 +9,7 @@ const TaskList = () => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(storedTasks);
   }, []);
-
+  console.log(tasks);
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -91,7 +91,7 @@ const TaskList = () => {
                 {editingTask === index ? (
                   <button
                     onClick={() => handleSaveTask(index, task.text)}
-                    className="p-2 bg-blue-500 text-white rounded"
+                    className="p-2 text-blue-500  rounded"
                   >
                     Save
                   </button>

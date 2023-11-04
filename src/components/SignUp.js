@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const SignUp = () => {
   });
 
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -53,6 +54,7 @@ const SignUp = () => {
         existingUsers.push(newUser);
         localStorage.setItem("users", JSON.stringify(existingUsers));
         alert("User registered successfully!");
+        navigate("/tasklist");
       }
     }
   };
